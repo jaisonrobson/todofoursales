@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Logo from './Logo'
 import List from 'views/todo/list/List'
 import Sidebar from 'views/todo/sidebar/Sidebar'
+import { withReducerContextProvider } from 'contexts/withReducerContext'
 
 const StyledApp = styled.div`
     width: 100vw;
@@ -20,4 +21,4 @@ const App = () => {
     )
 }
 
-export default App
+export default withReducerContextProvider(App)
