@@ -4,16 +4,22 @@ import Container from 'components/layout/Container'
 import Row from 'components/layout/Row'
 import Col from 'components/layout/Col'
 
-const Logo = () => {
+import Sidebar from 'views/todo/sidebar/Sidebar'
+import List from 'views/todo/list/List'
+
+const Todos = () => {
     return (
-        <Container fluid style={{ display: 'flex', justifyContent: 'center' }}>
+        <Container fluid>
             <Row>
                 <Col>
-                    FourSales To Do List
+                    <Sidebar />
+                </Col>
+                <Col>
+                    <List />
                 </Col>
             </Row>
         </Container>
     )
 }
 
-export default Logo
+export default Todos

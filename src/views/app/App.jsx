@@ -2,8 +2,8 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
 import Logo from './Logo'
-import List from 'views/todo/list/List'
-import Sidebar from 'views/todo/sidebar/Sidebar'
+import Todos from 'views/todo/Todos'
+
 import { withReducerContextProvider } from 'contexts/withReducerContext'
 
 const StyledApp = styled.div`
@@ -15,8 +15,7 @@ const App = () => {
     return (
         <StyledApp>
             <Logo />
-            <Sidebar />
-            <List />
+            <Todos />
         </StyledApp>
     )
 }
