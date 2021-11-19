@@ -1,6 +1,9 @@
 import React from 'react'
 
-const List = () => {
+import { withReducerContextConsumer } from 'contexts/withReducerContext'
+
+const List = ({ reducer }) => {
+    console.log(`reducer`, reducer)
     return (
         <div>
             List
@@ -8,4 +11,4 @@ const List = () => {
     )
 }
 
-export default List
+export default withReducerContextConsumer(List)
