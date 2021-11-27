@@ -1,13 +1,16 @@
 import React from 'react'
 
+import Categories from 'views/todo/Categories'
+import Activities from 'views/todo/Activities'
+
 const Content = () => (
     <div id="main-container">
         <aside className="sidebar">
-            <span className="inner-text">Sidebar</span>
+            <Categories />
         </aside>
 
         <main className="content">
-            <span className="inner-text">Content area</span>
+            <Activities />
         </main>
     </div>
 )
