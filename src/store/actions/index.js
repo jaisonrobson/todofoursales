@@ -1,4 +1,4 @@
-import { todoadd } from './todo'
+import { todoadd, tododelete, todotoggle } from './todo'
 
 export const ACTIONS = {
     TODO_ADD: 'todo-add',
@@ -8,4 +8,6 @@ export const ACTIONS = {
 
 export {
     todoadd,
+    tododelete,
+    todotoggle,
 }
