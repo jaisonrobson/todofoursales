@@ -1,22 +1,18 @@
-import React, { Fragment } from 'react'
-import styled from 'styled-components'
+import './App.css'
+import React from 'react'
 
-import Logo from './Logo'
-import Todos from 'views/todo/Todos'
+import Header from './Header'
+import Content from './Content'
 
 import { withReducerContextProvider } from 'contexts/withReducerContext'
 
-const StyledApp = styled.div`
-    width: 100vw;
-    height: 100vh;
-`
-
 const App = () => {
     return (
-        <StyledApp>
-            <Logo />
-            <Todos />
-        </StyledApp>
+        <div id="pagecorpse">
+            <Header />
+
+            <Content />
+        </div>
     )
 }
 
