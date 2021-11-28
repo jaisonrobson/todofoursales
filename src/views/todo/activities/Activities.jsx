@@ -13,6 +13,7 @@ const Activities = ({ reducer }) => {
                 hover
                 responsive
                 striped
+                style={{ height: '100%' }}
             >
                 <thead>
                     <tr>
@@ -24,6 +25,9 @@ const Activities = ({ reducer }) => {
                         </th>
                         <th>
                             Descricao
+                        </th>
+                        <th>
+                            Completado
                         </th>
                     </tr>
                 </thead>
@@ -38,6 +42,11 @@ const Activities = ({ reducer }) => {
                         <td>
                             Remover a sujeira da calha quando tiver tempo livre
                         </td>
+                        <td>
+                            <div className="completed-container">
+                                <input className="completed-checkbox" type="checkbox" />
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -49,6 +58,11 @@ const Activities = ({ reducer }) => {
                         <td>
                             Remover a sujeira da piscina antes da festa
                         </td>
+                        <td>
+                            <div className="completed-container">
+                                <input className="completed-checkbox" type="checkbox" />
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -59,6 +73,25 @@ const Activities = ({ reducer }) => {
                         </td>
                         <td>
                             Averiguar melhor a necessidade da importacao de arquivos no sistema com o cliente
+                        </td>
+                        <td>
+                            <div className="completed-container">
+                                <input className="completed-checkbox" type="checkbox" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button>+</button>
+                        </td>
+                        <td>
+                            -
+                        </td>
+                        <td>
+                            -
+                        </td>
+                        <td>
+                            -
                         </td>
                     </tr>
                 </tbody>
