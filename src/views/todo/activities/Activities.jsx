@@ -1,5 +1,6 @@
 import './Activities.css'
 import React from 'react'
+import _ from 'lodash'
 import { faPencilAlt, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 import Table from 'components/layout/Table'
@@ -29,6 +30,40 @@ const EditTodoButton = (props) => (
     </Button>
 )
 
+const Todo = ({ id, name, category, description, completed }) => (
+    <tr>
+        <td>
+            {name}
+        </td>
+        <td>
+            {category}
+        </td>
+        <td>
+            {description}
+        </td>
+        <td>
+            <div className="tablecell-container">
+                <input className="tablecell-checkbox" type="checkbox" value={completed} />
+            </div>
+        </td>
+        <td>
+            <div className="tablecell-container">
+                <EditTodoButton />
+            </div>
+        </td>
+        <td>
+            <div className="tablecell-container">
+                <RemoveTodoButton />
+            </div>
+        </td>
+    </tr>
+)
+
+const TodosList = withReducerContextConsumer(({ reducer }) => {
+    console.log(`reducer`, reducer)
+    return _.map(reducer.todos, (todo) => <Todo key={todo.id} {...todo} />)
+})
+
 const TodosTableHeader = (props) => (
     <thead>
         <tr>
@@ -51,84 +86,8 @@ const TodosTableHeader = (props) => (
 
 const TodosTableBody = (props) => (
     <tbody>
-        <tr>
-            <td>
-                Sujeira na calha
-            </td>
-            <td>
-                Pessoal
-            </td>
-            <td>
-                Remover a sujeira da calha quando tiver tempo livre
-            </td>
-            <td>
-                <div className="tablecell-container">
-                    <input className="tablecell-checkbox" type="checkbox" />
-                </div>
-            </td>
-            <td>
-                <div className="tablecell-container">
-                    <EditTodoButton />
-                </div>
-            </td>
-            <td>
-                <div className="tablecell-container">
-                    <RemoveTodoButton />
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Sujeira na Piscina
-            </td>
-            <td>
-                Pessoal
-            </td>
-            <td>
-                Remover a sujeira da piscina antes da festa
-            </td>
-            <td>
-                <div className="tablecell-container">
-                    <input className="tablecell-checkbox" type="checkbox" />
-                </div>
-            </td>
-            <td>
-                <div className="tablecell-container">
-                    <EditTodoButton />
-                </div>
-            </td>
-            <td>
-                <div className="tablecell-container">
-                    <RemoveTodoButton />
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Requisito de Importacao
-            </td>
-            <td>
-                Trabalho
-            </td>
-            <td>
-                Averiguar melhor a necessidade da importacao de arquivos no sistema com o cliente
-            </td>
-            <td>
-                <div className="tablecell-container">
-                    <input className="tablecell-checkbox" type="checkbox" />
-                </div>
-            </td>
-            <td>
-                <div className="tablecell-container">
-                    <EditTodoButton />
-                </div>
-            </td>
-            <td>
-                <div className="tablecell-container">
-                    <RemoveTodoButton />
-                </div>
-            </td>
-        </tr>
+        <TodosList />
+
         <tr>
             <td colSpan="6">
                 <div className="tablecell-container">
