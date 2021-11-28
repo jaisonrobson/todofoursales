@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 
-import Categories from 'views/todo/categories/Categories'
-import Activities from 'views/todo/activities/Activities'
+import Categories from 'views/todos/sidebar/Categories'
+import Activities from 'views/todos/list/Activities'
 import { CATEGORIES } from 'util/constants'
 
 const Todos = () => {
