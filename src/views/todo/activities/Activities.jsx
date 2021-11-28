@@ -1,9 +1,10 @@
 import './Activities.css'
 import React from 'react'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import Table from 'components/layout/Table'
 import Button from 'components/layout/Button'
-
+import Icon from 'components/layout/Icon'
 import { withReducerContextConsumer } from 'contexts/withReducerContext'
 
 const TodosTableHeader = (props) => (
@@ -93,26 +94,18 @@ const TodosTableBody = (props) => (
             </td>
         </tr>
         <tr>
-            <td>
+            <td colSpan="5">
                 <div className="tablecell-container">
                     <Button
-                        color="primary"
+                        block
+                        textColor="black"
+                        buttonColor="transparent"
+                        hoverColor="#a3b9cf"
+                        activeColor="#778899"
                     >
-                        +
+                        <Icon icon={faPlus} />
                     </Button>
                 </div>
-            </td>
-            <td>
-                -
-            </td>
-            <td>
-                -
-            </td>
-            <td>
-                -
-            </td>
-            <td>
-                -
             </td>
         </tr>
     </tbody>
