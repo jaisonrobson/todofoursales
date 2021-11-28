@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 
-import Categories from 'views/todo/Categories'
-import Activities from 'views/todo/Activities'
+import Categories from 'views/todo/categories/Categories'
+import Activities from 'views/todo/activities/Activities'
 
 const Todos = () => {
     return (
