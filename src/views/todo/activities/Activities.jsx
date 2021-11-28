@@ -1,11 +1,33 @@
 import './Activities.css'
 import React from 'react'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPencilAlt, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 import Table from 'components/layout/Table'
 import Button from 'components/layout/Button'
 import Icon from 'components/layout/Icon'
 import { withReducerContextConsumer } from 'contexts/withReducerContext'
+
+const RemoveTodoButton = (props) => (
+    <Button
+        textColor="indianred"
+        buttonColor="transparent"
+        hoverColor="indianred"
+        activeColor="#6e1f1f"
+    >
+        <Icon icon={faTrashAlt} />
+    </Button>
+)
+
+const EditTodoButton = (props) => (
+    <Button
+        textColor="#ddc69b"
+        buttonColor="transparent"
+        hoverColor="#ddc69b"
+        activeColor="#856d42"
+    >
+        <Icon icon={faPencilAlt} />
+    </Button>
+)
 
 const TodosTableHeader = (props) => (
     <thead>
@@ -22,8 +44,7 @@ const TodosTableHeader = (props) => (
             <th>
                 Completado
             </th>
-            <th>
-            </th>
+            <th colSpan="2" />
         </tr>
     </thead>
 )
@@ -47,7 +68,12 @@ const TodosTableBody = (props) => (
             </td>
             <td>
                 <div className="tablecell-container">
-                    <button>X</button>
+                    <EditTodoButton />
+                </div>
+            </td>
+            <td>
+                <div className="tablecell-container">
+                    <RemoveTodoButton />
                 </div>
             </td>
         </tr>
@@ -68,7 +94,12 @@ const TodosTableBody = (props) => (
             </td>
             <td>
                 <div className="tablecell-container">
-                    <button>X</button>
+                    <EditTodoButton />
+                </div>
+            </td>
+            <td>
+                <div className="tablecell-container">
+                    <RemoveTodoButton />
                 </div>
             </td>
         </tr>
@@ -89,12 +120,17 @@ const TodosTableBody = (props) => (
             </td>
             <td>
                 <div className="tablecell-container">
-                    <button>X</button>
+                    <EditTodoButton />
+                </div>
+            </td>
+            <td>
+                <div className="tablecell-container">
+                    <RemoveTodoButton />
                 </div>
             </td>
         </tr>
         <tr>
-            <td colSpan="5">
+            <td colSpan="6">
                 <div className="tablecell-container">
                     <Button
                         block
