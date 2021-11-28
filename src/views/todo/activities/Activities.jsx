@@ -1,3 +1,4 @@
+import './Activities.css'
 import React from 'react'
 
 import { withReducerContextConsumer } from 'contexts/withReducerContext'
@@ -5,7 +6,7 @@ import { withReducerContextConsumer } from 'contexts/withReducerContext'
 const Activities = ({ reducer }) => {
     console.log(`reducer`, reducer)
     return (
-        <div style={{ margin: 'auto' }}>
+        <div id="activities">
             Activities
         </div>
     )

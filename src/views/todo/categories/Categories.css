@@ -1,4 +1,4 @@
-#activities {
+#categories {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -6,7 +6,7 @@
 }
 
 @media only screen and (max-width: 500px) {
-    #activities {
+    #categories {
         flex-direction: row;
     }
 }

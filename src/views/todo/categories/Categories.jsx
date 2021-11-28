@@ -7,7 +7,7 @@ import Button from 'components/layout/Button'
 
 const Categories = () => {
     return (
-        <div id="activities">
+        <div id="categories">
             {
                 _.map(
                     _.toArray(CATEGORIES),
