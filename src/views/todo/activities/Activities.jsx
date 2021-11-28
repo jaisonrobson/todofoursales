@@ -59,10 +59,12 @@ const Todo = ({ id, name, category, description, completed }) => (
     </tr>
 )
 
-const TodosList = withReducerContextConsumer(({ reducer }) => {
-    console.log(`reducer`, reducer)
-    return _.map(reducer.todos, (todo) => <Todo key={todo.id} {...todo} />)
-})
+const TodosList = withReducerContextConsumer(({ reducer, listedCategory }) => _.map(
+    reducer.todos,
+    (todo) => todo.category === listedCategory
+        ? <Todo key={todo.id} {...todo} />
+        : null,
+))
 
 const TodosTableHeader = (props) => (
     <thead>
@@ -84,9 +86,9 @@ const TodosTableHeader = (props) => (
     </thead>
 )
 
-const TodosTableBody = (props) => (
+const TodosTableBody = ({ listedCategory }) => (
     <tbody>
-        <TodosList />
+        <TodosList listedCategory={listedCategory} />
 
         <tr>
             <td colSpan="6">
@@ -106,18 +108,18 @@ const TodosTableBody = (props) => (
     </tbody>
 )
 
-const TodosTable = (props) => (
+const TodosTable = ({ listedCategory }) => (
     <Table>
         <TodosTableHeader />
 
-        <TodosTableBody />
+        <TodosTableBody listedCategory={listedCategory} />
     </Table>
 )
 
-const Activities = ({ reducer }) => {
+const Activities = ({ reducer, listedCategory }) => {
     return (
         <div id="activities">
-            <TodosTable />
+            <TodosTable listedCategory={listedCategory} />
         </div>
     )
 }
