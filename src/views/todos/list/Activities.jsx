@@ -70,12 +70,10 @@ const TodosTable = ({ listedCategory }) => (
     </Table>
 )
 
-const Activities = ({ listedCategory }) => {
-    return (
-        <div id="activities">
-            <TodosTable listedCategory={listedCategory} />
-        </div>
-    )
-}
+const Activities = ({ listedCategory }) => (
+    <div id="activities">
+        <TodosTable listedCategory={listedCategory} />
+    </div>
+)
 
 export default Activities
