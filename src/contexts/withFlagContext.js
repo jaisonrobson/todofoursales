@@ -18,10 +18,10 @@ export const withFlagContext = (WrappedComponent, { flag, initialValue }) => {
 
         const value = {
             ...state,
-            [setFlag]: (value) => setState({
-                ...state,
+            [setFlag]: (value) => setState((prevState) => ({
+                ...prevState,
                 [flag]: value,
-            }),
+            })),
         }
         return (
             <FlagContext.Provider value={value}>
