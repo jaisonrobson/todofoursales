@@ -1,11 +1,9 @@
 import './Activities.css'
 import React from 'react'
 import _ from 'lodash'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import Table from 'components/layout/Table'
-import Button from 'components/layout/Button'
-import Icon from 'components/layout/Icon'
+import TodoModalButton from 'components/custom/todos/TodoModalButton'
 import { withReducerContextConsumer } from 'contexts/withReducerContext'
 import Todo from 'views/todos/list/Todo'
 
@@ -36,19 +34,13 @@ const TodosTableHeader = (props) => (
     </thead>
 )
 
-const TodoAdd = () => (
+const TableLastRow = () => (
     <tr>
         <td colSpan="6">
             <div className="tablecell-container">
-                <Button
-                    block
-                    textColor="black"
-                    buttonColor="transparent"
-                    hoverColor="#a3b9cf"
-                    activeColor="#778899"
-                >
-                    <Icon icon={faPlus} />
-                </Button>
+                <TodoModalButton
+                    headerText="Novo afazer"
+                />
             </div>
         </td>
     </tr>
@@ -58,7 +50,7 @@ const TodosTableBody = ({ listedCategory }) => (
     <tbody>
         <TodosList listedCategory={listedCategory} />
 
-        <TodoAdd />
+        <TableLastRow />
     </tbody>
 )
 
