@@ -9,8 +9,9 @@ import Form from 'components/layout/Form'
 import Input from 'components/layout/Input'
 import { withReducerContextConsumer } from 'contexts/withReducerContext'
 import { CATEGORIES } from 'util/constants'
+import { ACTIONS, todoadd, todoedit } from 'store/actions'
 
-const TodoModalButton = ({ headerText = "Modal", id = Date.now(), name = "", category = CATEGORIES.WORK, description = "", completed = false }) => {
+const TodoModalButton = ({ reducer, action = ACTIONS.TODO_ADD, headerText = "Modal", id = Date.now(), name = "", category = CATEGORIES.WORK, description = "", completed = false }) => {
     const [todo, setTodo] = useState({
         id,
         name,
@@ -37,6 +38,14 @@ const TodoModalButton = ({ headerText = "Modal", id = Date.now(), name = "", cat
         }
 
         setErrors(prevState => prevState !== validation ? validation : prevState)
+
+        if (_.isEmpty(validation)) {
+            if (action === ACTIONS.TODO_ADD) {
+                todoadd(reducer.dispatch, todo)
+            } else if (action === ACTIONS.TODO_EDIT) {
+                todoedit(reducer.dispatch, todo)
+            }
+        }
 
         return validation
     }

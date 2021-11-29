@@ -7,6 +7,9 @@ export function todosReducer(state, action) {
         case ACTIONS.TODO_ADD:
             return { ...state, todos: [...state.todos, action.payload.todo] }
 
+        case ACTIONS.TODO_EDIT:
+            return { ...state, todos: _.map(state.todos, todo => todo.id === action.payload.todo.id ? action.payload.todo : todo) }
+
         case ACTIONS.TODO_DELETE:
             return { ...state, todos: _.filter(state.todos, todo => todo.id !== action.payload.todo.id) }
 
