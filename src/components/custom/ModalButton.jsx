@@ -65,7 +65,7 @@ const ModalHeader = ({ children, ...rest }) => {
     )
 }
 
-const ModalButton = ({ children, buttonText, ...rest }) => {
+const ModalButton = ({ children, buttonChildren, ...rest }) => {
     const { isOpen, setIsOpen } = useContext(FlagContext)
     const toggleModal = () => setIsOpen(!isOpen)
 
@@ -75,7 +75,7 @@ const ModalButton = ({ children, buttonText, ...rest }) => {
                 onClick={toggleModal}
                 {...rest}
             >
-                {buttonText}
+                {buttonChildren}
             </Button>
 
             <ReactstrapModal
