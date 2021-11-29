@@ -1,12 +1,12 @@
 import React from 'react'
 import _ from 'lodash'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { FormGroup, Label, Input } from 'reactstrap'
+import { FormGroup, Label } from 'reactstrap'
 
 import Icon from 'components/layout/Icon'
 import ModalButton from 'components/layout/ModalButton'
 import Form from 'components/layout/Form'
-import Select from 'components/layout/Select'
+import Input from 'components/layout/Input'
 import { withReducerContextConsumer } from 'contexts/withReducerContext'
 import { CATEGORIES } from 'util/constants'
 
@@ -31,9 +31,9 @@ const TodoModalButton = ({ headerText = "Modal" }) => {
                     </FormGroup>
                     <FormGroup>
                         <Label for="category">Categoria</Label>
-                        <Select name="category">
+                        <Input type="select" name="category">
                             {_.map(_.toArray(CATEGORIES), (element) => <option key={element}>{element}</option>)}
-                        </Select>
+                        </Input>
                     </FormGroup>
                     <FormGroup>
                         <Label for="description">Descrição</Label>
