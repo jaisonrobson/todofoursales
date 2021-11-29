@@ -5,7 +5,7 @@ import { faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import Icon from 'components/layout/Icon'
 import TodoModalButton from 'components/custom/todos/TodoModalButton'
 import RemoveTodoModalButton from 'components/custom/todos/RemoveTodoModalButton'
-import { ACTIONS } from 'store/actions'
+import { ACTIONS, todotoggle } from 'store/actions'
 import { withReducerContextConsumer } from 'contexts/withReducerContext'
 
 const RemoveTodoButton = ({ id, name }) => (
@@ -20,7 +20,7 @@ const RemoveTodoButton = ({ id, name }) => (
     />
 )
 
-const EditTodoButton = withReducerContextConsumer(({ reducer, id }) => {
+const EditTodoButton = ({ reducer, id }) => {
     const todo = _.find(reducer.todos, (element) => element.id === id)
 
     return (
@@ -35,9 +35,9 @@ const EditTodoButton = withReducerContextConsumer(({ reducer, id }) => {
             {...todo}
         />
     )
-})
+}
 
-const Todo = ({ id, name, category, description, completed }) => (
+const Todo = ({ reducer, id, name, category, description, completed }) => (
     <tr>
         <td>
             {name}
@@ -50,12 +50,12 @@ const Todo = ({ id, name, category, description, completed }) => (
         </td>
         <td>
             <div className="tablecell-container">
-                <input className="tablecell-checkbox" type="checkbox" value={completed} />
+                <input className="tablecell-checkbox" type="checkbox" checked={completed} onChange={() => todotoggle(reducer.dispatch, id)} />
             </div>
         </td>
         <td>
             <div className="tablecell-container">
-                <EditTodoButton id={id} />
+                <EditTodoButton id={id} reducer={reducer} />
             </div>
         </td>
         <td>
@@ -66,4 +66,4 @@ const Todo = ({ id, name, category, description, completed }) => (
     </tr>
 )
 
-export default Todo
+export default withReducerContextConsumer(Todo)

@@ -12,6 +12,6 @@ export function tododelete(dispatch, id) {
     dispatch({ type: ACTIONS.TODO_DELETE, payload: { id } })
 }
 
-export function todotoggle(dispatch, todo) {
-    dispatch({ type: ACTIONS.TODO_TOGGLE, payload: { todo } })
+export function todotoggle(dispatch, id) {
+    dispatch({ type: ACTIONS.TODO_TOGGLE, payload: { id } })
 }
