@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import _ from 'lodash'
 
 import ModalButton from 'components/layout/ModalButton'
 import Form from 'components/layout/Form'

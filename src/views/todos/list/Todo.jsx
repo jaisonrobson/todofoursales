@@ -2,7 +2,6 @@ import React from 'react'
 import _ from 'lodash'
 import { faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-import Button from 'components/layout/Button'
 import Icon from 'components/layout/Icon'
 import TodoModalButton from 'components/custom/todos/TodoModalButton'
 import RemoveTodoModalButton from 'components/custom/todos/RemoveTodoModalButton'
