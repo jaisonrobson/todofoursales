@@ -1,4 +1,5 @@
 import React, { useContext, Fragment } from 'react'
+import _ from 'lodash'
 import {
     Modal as ReactstrapModal,
     ModalHeader as ReactstrapModalHeader,
@@ -20,10 +21,11 @@ const ModalFooter = ({
     const toggleModal = () => setIsOpen(!isOpen)
     const onConfirmInternal = () => {
         const result = onConfirm()
+        const isValidResult = _.isEmpty(result)
 
-        if (result) toggleModal()
+        if (isValidResult) toggleModal()
 
-        return result
+        return isValidResult
     }
 
     return (
@@ -65,7 +67,7 @@ const ModalHeader = ({ children, ...rest }) => {
     )
 }
 
-const ModalButton = ({ children, buttonChildren, ...rest }) => {
+const ModalButton = ({ children, buttonChildren, onOpened = () => { }, ...rest }) => {
     const { isOpen, setIsOpen } = useContext(FlagContext)
     const toggleModal = () => setIsOpen(!isOpen)
 
@@ -81,6 +83,7 @@ const ModalButton = ({ children, buttonChildren, ...rest }) => {
             <ReactstrapModal
                 toggle={toggleModal}
                 isOpen={isOpen}
+                onOpened={onOpened}
             >
                 {children}
             </ReactstrapModal>
