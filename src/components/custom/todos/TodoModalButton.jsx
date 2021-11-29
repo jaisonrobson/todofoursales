@@ -11,7 +11,17 @@ import { withReducerContextConsumer } from 'contexts/withReducerContext'
 import { CATEGORIES } from 'util/constants'
 import { ACTIONS, todoadd, todoedit } from 'store/actions'
 
-const TodoModalButton = ({ reducer, action = ACTIONS.TODO_ADD, headerText = "Modal", id = Date.now(), name = "", category = CATEGORIES.WORK, description = "", completed = false }) => {
+const TodoModalButton = ({
+    reducer,
+    action = ACTIONS.TODO_ADD,
+    headerText = "Modal",
+    id = Date.now(),
+    name = "",
+    category = CATEGORIES.WORK,
+    description = "",
+    completed = false,
+    ...props
+}) => {
     const [todo, setTodo] = useState({
         id,
         name,
@@ -61,7 +71,6 @@ const TodoModalButton = ({ reducer, action = ACTIONS.TODO_ADD, headerText = "Mod
     const onChangeDescription = onChangeField('description')
 
     return (
-
         <ModalButton
             block
             textColor="black"
@@ -70,6 +79,7 @@ const TodoModalButton = ({ reducer, action = ACTIONS.TODO_ADD, headerText = "Mod
             activeColor="#778899"
             buttonChildren={<Icon icon={faPlus} />}
             onOpened={onOpened}
+            {...props}
         >
             <Form width="100%" height="100%">
                 <ModalButton.Header>

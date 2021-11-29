@@ -39,7 +39,7 @@ const TableLastRow = () => (
         <td colSpan="6">
             <div className="tablecell-container">
                 <TodoModalButton
-                    headerText="Novo afazer"
+                    headerText="Nova Tarefa"
                 />
             </div>
         </td>
