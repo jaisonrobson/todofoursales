@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { Input as ReactstrapInput } from 'reactstrap'
@@ -11,6 +11,11 @@ ${({ padding }) => padding ? `padding: ${padding};` : ''}
 ${({ margin }) => margin ? `margin: ${margin};` : ''}
 `
 
-const Select = (props) => <StyledInput type="select" {...props} />
+const Input = ({ initialValue = "", ...props }) => {
+    const [value, setValue] = useState(initialValue)
+    const updateValue = (event) => setValue(prevState => prevState !== event.target.value ? event.target.value : prevState)
 
-export default Select
+    return <StyledInput value={value} onChange={updateValue} {...props} />
+}
+
+export default Input
