@@ -5,18 +5,20 @@ import { faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import Button from 'components/layout/Button'
 import Icon from 'components/layout/Icon'
 import TodoModalButton from 'components/custom/todos/TodoModalButton'
+import RemoveTodoModalButton from 'components/custom/todos/RemoveTodoModalButton'
 import { ACTIONS } from 'store/actions'
 import { withReducerContextConsumer } from 'contexts/withReducerContext'
 
-const RemoveTodoButton = ({ id }) => (
-    <Button
+const RemoveTodoButton = ({ id, name }) => (
+    <RemoveTodoModalButton
         textColor="indianred"
         buttonColor="transparent"
         hoverColor="indianred"
         activeColor="#6e1f1f"
-    >
-        <Icon icon={faTrashAlt} />
-    </Button>
+        buttonChildren={<Icon icon={faTrashAlt} />}
+        id={id}
+        name={name}
+    />
 )
 
 const EditTodoButton = withReducerContextConsumer(({ reducer, id }) => {
@@ -59,7 +61,7 @@ const Todo = ({ id, name, category, description, completed }) => (
         </td>
         <td>
             <div className="tablecell-container">
-                <RemoveTodoButton />
+                <RemoveTodoButton id={id} name={name} />
             </div>
         </td>
     </tr>

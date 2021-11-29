@@ -11,7 +11,7 @@ export function todosReducer(state, action) {
             return { ...state, todos: _.map(state.todos, todo => todo.id === action.payload.todo.id ? action.payload.todo : todo) }
 
         case ACTIONS.TODO_DELETE:
-            return { ...state, todos: _.filter(state.todos, todo => todo.id !== action.payload.todo.id) }
+            return { ...state, todos: _.filter(state.todos, todo => todo.id !== action.payload.id) }
 
         case ACTIONS.TODO_TOGGLE:
             return { ...state, todos: _.map(state.todos, todo => todo.id === action.payload.todo.id ? { ...todo, complete: !todo.complete } : todo) }
