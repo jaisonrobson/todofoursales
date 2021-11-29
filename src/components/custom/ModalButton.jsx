@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, Fragment } from 'react'
 import {
     Modal as ReactstrapModal,
     ModalHeader as ReactstrapModalHeader,
@@ -70,7 +70,7 @@ const ModalButton = ({ children, buttonChildren, ...rest }) => {
     const toggleModal = () => setIsOpen(!isOpen)
 
     return (
-        <div>
+        <Fragment>
             <Button
                 onClick={toggleModal}
                 {...rest}
@@ -84,7 +84,7 @@ const ModalButton = ({ children, buttonChildren, ...rest }) => {
             >
                 {children}
             </ReactstrapModal>
-        </div>
+        </Fragment>
     )
 }
 
